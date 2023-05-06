@@ -12,13 +12,19 @@ function App() {
   // this will be used for the Dark Mode Toggle feature
   const appClass = dark ? "App dark" : "App light"
 
+  const [selectedCategory, setSelectedCategory] = useState('Filter by category')
+
+  const filteredItems = itemData.filter((item) => {
+    item.category.toLowerCase().includes(selectedCategory.toLowerCase())
+  })
+
   return (
     <div className={appClass}>
       <header>
         <h2>Shopster</h2>
         <button onClick={handleThemeChange}>Dark Mode</button>
       </header>
-      <ShoppingList items={itemData} />
+      <ShoppingList items={itemData} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
     </div>
   );
 }

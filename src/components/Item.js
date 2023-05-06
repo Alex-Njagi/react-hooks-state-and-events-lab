@@ -15,7 +15,7 @@ function Item({ name, category }) {
   }
 
   const itemClass = cart ? "in-cart" : ""
-  
+  const itemMsg = msg ? "Add to Cart" : "Remove from Cart"
 
   return (
     <li className={itemClass}>
